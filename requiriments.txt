@@ -2,3 +2,4 @@ Document
 Faker
 wikipedia
 pillow
+PyPDF2
