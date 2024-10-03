@@ -1,143 +1,116 @@
-from docx import Document
-from faker import Faker
-import random
+import base64
 import os
-from datetime import datetime
-import wikipedia
-import requests
-from bs4 import BeautifulSoup
+import random
+from PIL import Image
+from cryptography.fernet import Fernet
 
-# Inicializar Faker
-fake = Faker()
+def imagen_a_base64(ruta_imagen):
+    """Convierte una imagen a base64."""
+    with open(ruta_imagen, "rb") as imagen_archivo:
+        imagen_binaria = imagen_archivo.read()
+        return imagen_binaria  # No decodificamos a utf-8
 
-# Lista de nombres de animales (ampliada) en inglés
-animales = [
-    'Lion', 'Asian Elephant', 'Giraffe', 'Tiger', 'Giant Panda', 
-    'Grevy\'s Zebra', 'Red Kangaroo', 'Hippopotamus', 'White Rhinoceros', 
-    'Bornean Orangutan', 'Nile Crocodile', 'American Flamingo', 'Emperor Penguin', 
-    'RedFox', 'Gray Wolf', 'Brown Bear', 'Burmese Python', 
-    'River Otter', 
-    'Puma', 'Eagle Owl', 'Kestrel', 'Western Gorilla', 'Common Chimpanzee', 
-    'Ring-tailed Lemur', 'Capuchin Monkey', 'Koala', 'Bottlenose Dolphin', 'Humpback Whale', 
-    'Great White Shark', 'Loggerhead Sea Turtle', 'Boa Constrictor', 'Goanna', 
-    'Green Iguana', 'Bullfrog', 'Common Toad', 'Monarch Butterfly', 'Honey Bee', 
-    'Silkworm', 'Dung Beetle', 'Woodpecker', 'Bald Eagle', 
-    'Peregrine Falcon', 'Herring Gull',
-    'Canada Goose', 'Mute Swan', 
-    'Common Quail', 'Rock Dove', 'Indian Peafowl', 'Common Pheasant', 
-    'Domestic Dog', 'Domestic Cat', 'European Rabbit', 'Horse', 
-    'Domestic Pig', 'Sheep', 'Goat', 'Donkey', 'Dromedary Camel', 
-    'Northern Elephant Seal', 'Harbor Seal', 'West Indian Manatee', 'Beaver', 
-    'Gray Squirrel', 'House Mouse', 'European Hedgehog', 'Bat', 
-    'Anna\'s Hummingbird', 'African Grey Parrot', 'Blue-and-yellow Macaw', 'Domestic Canary', 
-    'Crayfish', 'American Lobster', 'Common Octopus', 'Giant Squid', 
-    'Jellyfish', 'Starfish', 'Goldfish', 'Hammerhead Shark', 
-    'Blue Whale', 'Bottlenose Dolphin', 'Seahorse', 'Red Coral', 
-    'Green Algae', 'Plankton', 'Bacteria', 'Mushroom', 
-    'Houseplant', 'Oak Tree', 'Rose'
-]
-
-# Función para crear un informe para cada animal
-def generar_informe(animal):
-    # Crear un nuevo documento
-    doc = Document()
+def guardar_base64_con_ruido(imagen_binaria, nombre_archivo, carpeta_salida, cantidad_ruido=1024):
+    """Guarda el string base64 en un archivo binario con ruido."""
+    os.makedirs(carpeta_salida, exist_ok=True)  # Crea la carpeta si no existe
+    ruta_archivo = os.path.join(carpeta_salida, nombre_archivo + ".imgbin")  # Añade la extensión ".imgbin"
     
-    # Obtener la fecha actual
-    fecha_actual = datetime.now()
+    ruido = bytes(random.randint(0, 255) for _ in range(cantidad_ruido))
+    datos_con_ruido = ruido + imagen_binaria + ruido
+    
+    with open(ruta_archivo, "wb") as archivo_binario:
+        archivo_binario.write(datos_con_ruido)
 
-    # Título del informe
-    doc.add_heading(f'Informe de {animal}', 0)
+def guardar_base64_cifrado(imagen_binaria, nombre_archivo, carpeta_salida, clave):
+    """Guarda el string base64 en un archivo binario cifrado."""
+    os.makedirs(carpeta_salida, exist_ok=True)  # Crea la carpeta si no existe
+    ruta_archivo = os.path.join(carpeta_salida, nombre_archivo + ".enc")  # Añade la extensión ".enc"
+
+    cipher_suite = Fernet(clave)
+    imagen_cifrada = cipher_suite.encrypt(imagen_binaria)
     
-    # Información general
-    doc.add_heading('Información General', level=1)
-    visitas = random.randint(5000, 20000)
-    doc.add_paragraph(f"El zoológico ha recibido un total de {visitas} visitantes en la fecha del informe.")
-    doc.add_paragraph(f"Este informe fue elaborado por: {fake.name()}") # Nombre del recolector
-    
-    # Información sobre el animal
-    doc.add_heading('Estado del Animal', level=1)
-    try:
-        # Busca información sobre el animal en Wikipedia (en inglés)
-        page = wikipedia.page(animal)
+    with open(ruta_archivo, "wb") as archivo_binario:
+        archivo_binario.write(imagen_cifrada)
+
+def base64_a_imagen(ruta_archivo_binario, nombre_archivo, carpeta_salida, cantidad_ruido=1024):
+    """Convierte un string base64 a una imagen y elimina el ruido."""
+    os.makedirs(carpeta_salida, exist_ok=True)
+    ruta_archivo = os.path.join(carpeta_salida, nombre_archivo + ".png")  # Agrega extensión
+    with open(ruta_archivo_binario, "rb") as archivo_binario:
+        datos_con_ruido = archivo_binario.read()
         
-        # Extrae información relevante
-        nombre_cientifico = page.title
-        estado_conservacion = page.summary.split(" ")[0]  
-        descripcion = page.content  # Obtiene todo el contenido de la página
+        # Elimina el ruido
+        imagen_binaria = datos_con_ruido[cantidad_ruido:-cantidad_ruido]
         
-        # Asigna información a la sección del documento
-        doc.add_paragraph(f"Nombre científico: {nombre_cientifico}")
-        doc.add_paragraph(f"Estado de conservación: {estado_conservacion}")
-        doc.add_paragraph(descripcion)
+        with open(ruta_archivo, "wb") as imagen_archivo:
+            imagen_archivo.write(imagen_binaria)
 
-    except wikipedia.exceptions.PageError:
-        # Maneja el error si no se encuentra información
-        doc.add_paragraph(f"No se encontró información sobre {animal} en Wikipedia.")
+def base64_a_imagen_descifrado(ruta_archivo_binario, nombre_archivo, carpeta_salida, clave):
+    """Convierte un string base64 cifrado a una imagen y la descifra."""
+    os.makedirs(carpeta_salida, exist_ok=True)
+    ruta_archivo = os.path.join(carpeta_salida, nombre_archivo + ".png")  # Agrega extensión
+    with open(ruta_archivo_binario, "rb") as archivo_binario:
+        imagen_cifrada = archivo_binario.read()
+        
+        # Descifra la imagen
+        cipher_suite = Fernet(clave)
+        imagen_descifrada = cipher_suite.decrypt(imagen_cifrada)
+        
+        with open(ruta_archivo, "wb") as imagen_archivo:
+            imagen_archivo.write(imagen_descifrada)
 
-    # Información adicional (datos ficticios)
-    doc.add_heading('Información adicional', level=1)
-    doc.add_paragraph(f"Peso: {random.randint(10, 500)} kg")
-    doc.add_paragraph(f"Altura: {random.randint(1, 5)} m")
-    doc.add_paragraph(f"Longitud: {random.randint(1, 10)} m")
-    doc.add_paragraph(f"Velocidad máxima: {random.randint(10, 100)} km/h")
-    doc.add_paragraph(f"Esperanza de vida: {random.randint(5, 50)} años")
-    doc.add_paragraph(f"Número de crías por camada: {random.randint(1, 10)}")
-    doc.add_paragraph(f"Tiempo de gestación: {random.randint(1, 12)} meses")
+def procesar_imagenes(carpeta_imagenes, carpeta_salida):
+    """Procesa todas las imágenes de una carpeta."""
+    for nombre_archivo in os.listdir(carpeta_imagenes):
+        if nombre_archivo.endswith((".jpg", ".jpeg", ".png")):
+            ruta_imagen = os.path.join(carpeta_imagenes, nombre_archivo)
+            imagen_binaria = imagen_a_base64(ruta_imagen)
+            guardar_base64_con_ruido(imagen_binaria, nombre_archivo, carpeta_salida)
 
-    # Agregar una sección con datos adicionales
-    doc.add_heading('Datos adicionales', level=1)
-    doc.add_paragraph(f"Distribución geográfica: {fake.sentence(nb_words=5)}")
-    doc.add_paragraph(f"Dieta: {fake.sentence(nb_words=3)}")
-    doc.add_paragraph(f"Amenazas: {fake.sentence(nb_words=5)}")
-    doc.add_paragraph(f"Medidas de conservación: {fake.sentence(nb_words=5)}")
+def recuperar_imagenes(carpeta_base64, carpeta_salida):
+    """Recupera imágenes desde los archivos base64."""
+    for nombre_archivo in os.listdir(carpeta_base64):
+        # Elimina la extensión de la imagen original
+        nombre_archivo_sin_ext = os.path.splitext(nombre_archivo)[0]
+        ruta_archivo = os.path.join(carpeta_base64, nombre_archivo)
+        base64_a_imagen(ruta_archivo, nombre_archivo_sin_ext, carpeta_salida, cantidad_ruido=1024)
 
-    # Agregar una sección con información sobre el cuidado en el zoológico
-    doc.add_heading('Cuidado en el zoológico', level=1)
-    doc.add_paragraph(f"Hábitat del zoológico: {fake.sentence(nb_words=5)}")
-    doc.add_paragraph(f"Dieta del zoológico: {fake.sentence(nb_words=5)}")
-    doc.add_paragraph(f"Programa de enriquecimiento ambiental: {fake.sentence(nb_words=5)}")
-    doc.add_paragraph(f"Programa de reproducción: {fake.sentence(nb_words=5)}")
+def cifrar_imagenes(carpeta_imagenes, carpeta_salida, clave):
+    """Cifra las imágenes de una carpeta."""
+    for nombre_archivo in os.listdir(carpeta_imagenes):
+        if nombre_archivo.endswith((".jpg", ".jpeg", ".png")):
+            ruta_imagen = os.path.join(carpeta_imagenes, nombre_archivo)
+            imagen_binaria = imagen_a_base64(ruta_imagen)
+            guardar_base64_cifrado(imagen_binaria, nombre_archivo, carpeta_salida, clave)
 
-    # Guardar el documento
-    dia_random = random.randint(1, 31)  # Generar un día aleatorio
-    nombre_archivo = f"informes_zoologico/Informe_{animal.replace(' ', '_')}_{dia_random}_{fecha_actual.month}.docx"
-    doc.save(nombre_archivo)
-    print(f"Informe guardado como: {nombre_archivo}")
+def descifrar_imagenes(carpeta_cifrada, carpeta_salida, clave):
+    """Descifra las imágenes de una carpeta."""
+    for nombre_archivo in os.listdir(carpeta_cifrada):
+        if nombre_archivo.endswith(".enc"):
+            ruta_archivo = os.path.join(carpeta_cifrada, nombre_archivo)
+            base64_a_imagen_descifrado(ruta_archivo, os.path.splitext(nombre_archivo)[0], carpeta_salida, clave)
 
-    # Obtener la imagen del animal
-    try:
-        # Buscar la imagen en Google Images
-        url = f"https://www.google.com/search?q={animal}+image&tbm=isch&ved=2ahUKEwjJ3vG6r5P9AhVJG80KHXs0C3QQ2-cCegQIABAA&oq={animal}+image&gs_lcp=CgNpbWcQA1D59wFYz5wBYJ8gaAB4AIABAIgBAJIBAJgBAaABAQ&sclient=img&ei=C93cY-zGLoX0gAaK0o2wAg&bih=906&biw=1536&hl=es"
-        response = requests.get(url)
-        soup = BeautifulSoup(response.text, 'html.parser')
+if __name__ == "__main__":
+    carpeta_imagenes = "./imgAnimals"  # Nombre de la carpeta con tus imágenes
+    carpeta_base64 = "./binImgAnimals"  # Nombre de la carpeta para los archivos base64
+    carpeta_recuperadas = "./binToOriginal"   # Nombre de la carpeta para las imágenes recuperadas
+    carpeta_cifradas = "./cifradas" # Nombre de la carpeta para las imágenes cifradas
+    carpeta_descifradas = "./descifradas" # Nombre de la carpeta para las imágenes descifradas
+    
+    # Genera una clave secreta
+    clave = Fernet.generate_key()
+    
+    # Imprime la clave
+    print("Clave secreta:", clave.decode()) 
 
-        # Encuentra la imagen dentro de un enlace de imagen (a href)
-        image_link = soup.find('a', href=lambda href: href and 'imgurl' in href)
-        if image_link:
-            image_url = image_link['href'].split('=')[1]
-        else:
-            print(f"No se encontró una imagen para {animal} en Google Images.")
-            return
+    # Convertir las imágenes a base64 y guardar en carpetas separadas
+    procesar_imagenes(carpeta_imagenes, carpeta_base64)
 
-        # Descargar la imagen
-        imagen_nombre = f"imagenes_animales/{animal.replace(' ', '_')}.jpg"
-        response = requests.get(image_url, stream=True)
-        with open(imagen_nombre, 'wb') as out_file:
-            out_file.write(response.content)
-        print(f"Imagen de {animal} descargada como: {imagen_nombre}")
-    except Exception as e:
-        print(f"Error al descargar la imagen de {animal}: {e}")
-
-# Directorio de salida
-output_dir = "informes_zoologico"
-if not os.path.exists(output_dir):
-    os.makedirs(output_dir)
-
-# Directorio para las imágenes
-imagenes_dir = "imagenes_animales"
-if not os.path.exists(imagenes_dir):
-    os.makedirs(imagenes_dir)
-
-# Generar informes para cada animal
-for animal in animales:
-    generar_informe(animal)
+    # Recuperar las imágenes desde los archivos base64
+    recuperar_imagenes(carpeta_base64, carpeta_recuperadas)
+    
+    # Cifrar las imágenes
+    cifrar_imagenes(carpeta_imagenes, carpeta_cifradas, clave)
+    
+    # Descifrar las imágenes
+    descifrar_imagenes(carpeta_cifradas, carpeta_descifradas, clave)

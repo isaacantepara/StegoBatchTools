@@ -3,3 +3,6 @@ Faker
 wikipedia
 pillow
 PyPDF2
+
+----
+pip install cryptography
