@@ -1,0 +1,67 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36" version="24.7.17">
+  <diagram name="Página-1" id="a9QsAFOw-EEKxXcLdqP8">
+    <mxGraphModel dx="1050" dy="549" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="cFiiZ3tAKftz7L2f68a2-19" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="74" y="120" width="686" height="770" as="geometry" />
+        </mxCell>
+        <mxCell id="cFiiZ3tAKftz7L2f68a2-3" value="" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="100" y="220" width="630" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="cFiiZ3tAKftz7L2f68a2-4" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="99" y="540" width="630" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="cFiiZ3tAKftz7L2f68a2-5" value="" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/general/Files.svg;" parent="1" vertex="1">
+          <mxGeometry x="130" y="655" width="64" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="cFiiZ3tAKftz7L2f68a2-6" value="" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/general/Files.svg;" parent="1" vertex="1">
+          <mxGeometry x="240" y="655" width="64" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="cFiiZ3tAKftz7L2f68a2-7" value="" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/general/Files.svg;" parent="1" vertex="1">
+          <mxGeometry x="349.5" y="655" width="64" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="cFiiZ3tAKftz7L2f68a2-8" value="" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/general/Files.svg;" parent="1" vertex="1">
+          <mxGeometry x="450" y="655" width="64" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="cFiiZ3tAKftz7L2f68a2-9" value="" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/general/Files.svg;" parent="1" vertex="1">
+          <mxGeometry x="550" y="655" width="64" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="cFiiZ3tAKftz7L2f68a2-10" value="" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/general/Files.svg;" parent="1" vertex="1">
+          <mxGeometry x="650" y="655" width="64" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="cFiiZ3tAKftz7L2f68a2-11" value="ARCHIVOS INVISBLES Y CORRUPTOS, LOS VISIBLES TENDRAN STEGOGRAFIA DE ZIP CORRUPTOS" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="304" y="560" width="240" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="cFiiZ3tAKftz7L2f68a2-15" value="" style="sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.concepts.folder;fillColor=#2072B8;" parent="1" vertex="1">
+          <mxGeometry x="120" y="250" width="50" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="cFiiZ3tAKftz7L2f68a2-16" value="" style="sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.concepts.folder;fillColor=#2072B8;" parent="1" vertex="1">
+          <mxGeometry x="120" y="310" width="50" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="cFiiZ3tAKftz7L2f68a2-17" value="" style="sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.concepts.folder;fillColor=#2072B8;" parent="1" vertex="1">
+          <mxGeometry x="120" y="380" width="50" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="cFiiZ3tAKftz7L2f68a2-18" value="" style="sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.concepts.folder;fillColor=#2072B8;" parent="1" vertex="1">
+          <mxGeometry x="120" y="440" width="50" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="cFiiZ3tAKftz7L2f68a2-20" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;&lt;b&gt;MEMORIA DE 4GB&lt;/b&gt;&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="341" y="140" width="166" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="cq3hUIsNwpkFHWxiRQQl-1" value="Imagenes" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="170" y="455" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="cq3hUIsNwpkFHWxiRQQl-2" value="vide&lt;span style=&quot;color: rgba(0, 0, 0, 0); font-family: monospace; font-size: 0px; text-align: start; text-wrap: nowrap;&quot;&gt;%3CmxGraphModel%3E%3Croot%3E%3CmxCell%20id%3D%220%22%2F%3E%3CmxCell%20id%3D%221%22%20parent%3D%220%22%2F%3E%3CmxCell%20id%3D%222%22%20value%3D%22Imagenes%22%20style%3D%22text%3Bhtml%3D1%3Balign%3Dcenter%3BverticalAlign%3Dmiddle%3BwhiteSpace%3Dwrap%3Brounded%3D0%3B%22%20vertex%3D%221%22%20parent%3D%221%22%3E%3CmxGeometry%20x%3D%22170%22%20y%3D%22455%22%20width%3D%2260%22%20height%3D%2230%22%20as%3D%22geometry%22%2F%3E%3C%2FmxCell%3E%3C%2Froot%3E%3C%2FmxGraphModel%3E&lt;/span&gt;os" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="170" y="395" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="cq3hUIsNwpkFHWxiRQQl-3" value="sonidos" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="170" y="325" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="cq3hUIsNwpkFHWxiRQQl-4" value="docx" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="170" y="265" width="60" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
