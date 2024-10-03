@@ -1,3 +1,4 @@
 Document
 Faker
 wikipedia
+pillow
