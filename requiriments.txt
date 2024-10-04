@@ -3,3 +3,5 @@ Faker
 wikipedia
 pillow
 PyPDF2
+requests
+selenium
