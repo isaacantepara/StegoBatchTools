@@ -40,10 +40,10 @@ chrome_options.add_argument("--no-sandbox")  # Necesario para algunos entornos d
 chrome_options.add_argument("--disable-dev-shm-usage")  # Evitar problemas de memoria en contenedores
 
 # Ruta al chromedriver
-webdriver_service = Service("C:\\Users\\thisi\\Downloads\\chromedriver-win64\\chromedriver.exe")
+webdriver_service = Service("../chromedriver")
 
 # Crear el directorio para almacenar las imágenes si no existe
-os.makedirs("imagenes_animales", exist_ok=True)
+os.makedirs("../mierda/imagenes_animales", exist_ok=True)
 
 # Inicializar el controlador de Chrome
 driver = webdriver.Chrome(service=webdriver_service, options=chrome_options)
@@ -62,7 +62,7 @@ def descargar_imagen(animal):
         respuesta = requests.get(imagen_url)
         if respuesta.status_code == 200:
             # Guardar la imagen en la carpeta 'imagenes_animales'
-            ruta_imagen = os.path.join("imagenes_animales", f"{animal}.jpg")
+            ruta_imagen = os.path.join("../mierda/imagenes_animales", f"{animal}.jpg")
             with open(ruta_imagen, "wb") as archivo_imagen:
                 archivo_imagen.write(respuesta.content)
             print(f"Imagen de {animal} descargada con éxito.")
