@@ -52,12 +52,12 @@ def modificar_metadatos(archivo, autores):
 
 
 # Leer la lista de autores desde el archivo txt
-with open("./registros_captura.txt", "r") as f:
+with open("../data/password/registros_captura.txt", "r") as f:
     autores = f.readlines()
 
 
 # Carpeta con los archivos DOCX
-carpeta_docx = "./informes_zoologico"  # Reemplaza con la ruta de tu carpeta
+carpeta_docx = "../mierda/informes_zoologico"  # Reemplaza con la ruta de tu carpeta
 
 # Iterar sobre los archivos DOCX en la carpeta
 for archivo in os.listdir(carpeta_docx):
