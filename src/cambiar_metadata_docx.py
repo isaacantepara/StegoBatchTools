@@ -47,7 +47,7 @@ def modificar_metadatos(archivo):
         os.utime(archivo, (timestamp, timestamp))
 
 # Carpeta con los archivos DOCX
-carpeta_docx = "../mierda/informes"  # Reemplaza con la ruta de tu carpeta
+carpeta_docx = "../pendriver/informes"  # Reemplaza con la ruta de tu carpeta
 
 # Iterar sobre los archivos DOCX en la carpeta
 for archivo in os.listdir(carpeta_docx):

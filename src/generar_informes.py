@@ -97,12 +97,12 @@ def generar_informe(animal):
 
     # Guardar el documento
     dia_random = random.randint(1, 31)  # Generar un día aleatorio
-    nombre_archivo = f"../mierda/informes/Informe_{animal.replace(' ', '_')}_{dia_random}_{fecha_actual.month}.docx"
+    nombre_archivo = f"../pendriver/informes/Informe_{animal.replace(' ', '_')}_{dia_random}_{fecha_actual.month}.docx"
     doc.save(nombre_archivo)
     print(f"Informe guardado como: {nombre_archivo}")
 
 # Directorio de salida
-output_dir = "../mierda/informes"
+output_dir = "../pendriver/informes"
 if not os.path.exists(output_dir):
     os.makedirs(output_dir)
 

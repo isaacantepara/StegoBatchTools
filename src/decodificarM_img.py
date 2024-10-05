@@ -25,8 +25,8 @@ def recuperacion(carpeta_base64, carpeta_salida):
         imagen_(ruta_archivo, nombre_archivo_sin_ext, carpeta_salida, cantidad_ruido=1024)
 
 if __name__ == "__main__":
-    carpeta_base64 = "../mierda/ruidoImg"  # Nombre de la carpeta para los archivos base64
-    carpeta_recuperadas = "../mierda/eliminarRuidoImg"   # Nombre de la carpeta para las imágenes recuperadas
+    carpeta_base64 = "../pendriver/codificar"  # Nombre de la carpeta para los archivos base64
+    carpeta_recuperadas = "../pendriver/descifrar"   # Nombre de la carpeta para las imágenes recuperadas
 
     # Recuperar las imágenes desde los archivos base64
     recuperacion(carpeta_base64, carpeta_recuperadas)

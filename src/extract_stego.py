@@ -32,7 +32,7 @@ def extraer_archivo_bin_de_docx(ruta_archivo_docx):
     return datos_extraidos
 
 # Ejemplo de uso
-ruta_archivo_docx = "./informes_zoologico_stego/Informe_Brown_Bear_12_10bit.jpg.bin_stego.docx"
+ruta_archivo_docx = "../pendriver/informes_stego/Informe_Brown_Bear_12_10bit.jpg.bin_stego.docx"
 archivo_bin = extraer_archivo_bin_de_docx(ruta_archivo_docx)
 
 # Guardar el archivo binario extraído

@@ -34,6 +34,6 @@ def procesar_imagenes(carpeta_imagenes, carpeta_salida):
 
 if __name__ == "__main__":
     carpeta_imagenes = "../data/img"  # Nombre de la carpeta con tus imágenes
-    carpeta_base64 = "../mierda/ruidoImg"  # Nombre de la carpeta para los archivos base64
+    carpeta_base64 = "../pendriver/codificar"  # Nombre de la carpeta para los archivos base64
     # Convertir las imágenes a base64 y guardar en carpetas separadas
     procesar_imagenes(carpeta_imagenes, carpeta_base64)
