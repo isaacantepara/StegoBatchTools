@@ -7,3 +7,5 @@ requests
 selenium
 openpyxl
 pandas
+pyarmor
+compileall
