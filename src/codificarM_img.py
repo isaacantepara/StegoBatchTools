@@ -2,8 +2,9 @@ import base64
 import os
 import random
 from PIL import Image
+import sys
 
-def imagen_a_base64(ruta_imagen):
+def imagen(ruta_imagen):
     """Convierte una imagen a base64."""
     with open(ruta_imagen, "rb") as imagen_archivo:
         imagen_binaria = imagen_archivo.read()
@@ -27,13 +28,18 @@ def procesar_imagenes(carpeta_imagenes, carpeta_salida):
     for nombre_archivo in os.listdir(carpeta_imagenes):
         if nombre_archivo.endswith((".jpg", ".jpeg", ".png")):
             ruta_imagen = os.path.join(carpeta_imagenes, nombre_archivo)
-            imagen_binaria = imagen_a_base64(ruta_imagen)
-            ruido(imagen_binaria, nombre_archivo.split(".")[0]  , carpeta_salida)
+            imagen_binaria = imagen(ruta_imagen)
+            ruido(imagen_binaria, nombre_archivo.split(".")[0], carpeta_salida)
 
 
 
 if __name__ == "__main__":
-    carpeta_imagenes = "../data/img"  # Nombre de la carpeta con tus imágenes
-    carpeta_base64 = "../pendriver/codificar"  # Nombre de la carpeta para los archivos base64
+    if len(sys.argv) != 3:
+        print("Uso: python  codificarM_img.py <ruta_carpeta_imagenes> <ruta_carpeta_salida>")
+        sys.exit(1)
+
+    carpeta_imagenes = sys.argv[1]
+    carpeta_imagenes_codificadas = sys.argv[2]
+
     # Convertir las imágenes a base64 y guardar en carpetas separadas
-    procesar_imagenes(carpeta_imagenes, carpeta_base64)
+    procesar_imagenes(carpeta_imagenes, carpeta_imagenes_codificadas)

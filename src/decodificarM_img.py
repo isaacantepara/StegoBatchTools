@@ -2,6 +2,7 @@ import base64
 import os
 import random
 from PIL import Image
+import sys
 
 def imagen_(ruta_archivo_binario, nombre_archivo, carpeta_salida, cantidad_ruido=1024):
     """Convierte un string base64 a una imagen y elimina el ruido."""
@@ -25,8 +26,12 @@ def recuperacion(carpeta_base64, carpeta_salida):
         imagen_(ruta_archivo, nombre_archivo_sin_ext, carpeta_salida, cantidad_ruido=1024)
 
 if __name__ == "__main__":
-    carpeta_base64 = "../pendriver/codificar"  # Nombre de la carpeta para los archivos base64
-    carpeta_recuperadas = "../pendriver/descifrar"   # Nombre de la carpeta para las imágenes recuperadas
+    if len(sys.argv) != 3:
+        print("Uso: python3 decodificarM_img.py <ruta_carpeta_codificada> <ruta_carpeta_decodificada>")
+        sys.exit(1)
+
+    carpeta_base64 = sys.argv[1]  # Ruta de la carpeta para los archivos base64
+    carpeta_recuperadas = sys.argv[2]   # Ruta de la carpeta para las imágenes recuperadas
 
     # Recuperar las imágenes desde los archivos base64
     recuperacion(carpeta_base64, carpeta_recuperadas)
