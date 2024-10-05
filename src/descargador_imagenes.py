@@ -4,6 +4,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
+from time import sleep
 
 # Lista de animales
 animales = [
@@ -48,21 +49,28 @@ os.makedirs("../pendriver/imagenes", exist_ok=True)
 # Inicializar el controlador de Chrome
 driver = webdriver.Chrome(service=webdriver_service, options=chrome_options)
 
-# Función para descargar imagen de Wikipedia
+# Función para descargar imagen de iNaturalist
 def descargar_imagen(animal):
     try:
-        # Navegar a Wikipedia y buscar el animal
-        driver.get(f"https://en.wikipedia.org/wiki/{animal.replace(' ', '_')}")
+        # Navegar a iNaturalist y buscar el animal
+        driver.get(f"https://ecuador.inaturalist.org/taxa/{animal}")
 
         # Obtener la primera imagen en la página
-        imagen_elemento = driver.find_element(By.CSS_SELECTOR, "table.infobox img")
-        imagen_url = imagen_elemento.get_attribute("src")
+        imagen_elemento = driver.find_element(By.CSS_SELECTOR, ".photo-bg")
+        style_attribute = imagen_elemento.get_attribute("style")
 
+        # Extraer la URL de la imagen
+        imagen_url = style_attribute.split("url(\"")[1].split("\");")[0]  
+        print(f"small = {imagen_url}")
+         # Reemplazar "small.jpg" o "small.jpeg" por "original.jpg"
+        imagen_url_original = imagen_url.replace("small.jpg", "original.jpg") 
+        imagen_url_original = imagen_url_original.replace("small.jpeg", "original.jpeg")# Reemplazar "small.jpg" por "original.jpg"
+        print(f"original = {imagen_url_original}")
         # Descargar la imagen
-        respuesta = requests.get(imagen_url)
+        respuesta = requests.get(imagen_url_original)
         if respuesta.status_code == 200:
             # Guardar la imagen en la carpeta 'imagenes_animales'
-            ruta_imagen = os.path.join("../pendriver/imagenes", f"{animal}.jpg")
+            ruta_imagen = os.path.join("../pendriver/imagenes", f"{animal.replace(' ', '_')}.jpg")
             with open(ruta_imagen, "wb") as archivo_imagen:
                 archivo_imagen.write(respuesta.content)
             print(f"Imagen de {animal} descargada con éxito.")
@@ -74,6 +82,7 @@ def descargar_imagen(animal):
 # Descargar imágenes de todos los animales
 for animal in animales:
     descargar_imagen(animal)
+    sleep(3)  # Espera 3 segundos antes de pasar al siguiente animal
 
 # Cerrar el navegador
 driver.quit()
