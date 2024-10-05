@@ -4,6 +4,10 @@
 
 - exiftool file.docx
 
+### Generar informes
+
+- └─$ python3 generar_informes.py  ruta_carpeta
+
 ### codificacion/decodificar por carpeta
 
 - python  codificarM_img.py <ruta_carpeta_imagenes> <ruta_carpeta_salida>

@@ -1,3 +1,4 @@
+import sys
 from docx import Document
 from faker import Faker
 import random
@@ -35,7 +36,7 @@ animales = [
     'Houseplant', 'Oak Tree', 'Rose'
 ]
 # Función para crear un informe para cada animal
-def generar_informe(animal):
+def generar_informe(animal, ruta_salida):
     # Crear un nuevo documento
     doc = Document()
     
@@ -96,16 +97,23 @@ def generar_informe(animal):
     doc.add_paragraph(f"Programa de reproducción: {fake.sentence(nb_words=5)}")
 
     # Guardar el documento
-    dia_random = random.randint(1, 31)  # Generar un día aleatorio
-    nombre_archivo = f"../pendriver/informes/Informe_{animal.replace(' ', '_')}_{dia_random}_{fecha_actual.month}.docx"
-    doc.save(nombre_archivo)
+    dia_random = random.randint(1, 1000)  # Generar un día aleatorio
+    nombre_archivo = f"Informe_{animal.replace(' ', '_')}_n{dia_random}.docx"
+    ruta_completa = os.path.join(ruta_salida, nombre_archivo)
+    doc.save(ruta_completa)
     print(f"Informe guardado como: {nombre_archivo}")
 
-# Directorio de salida
-output_dir = "../pendriver/informes"
-if not os.path.exists(output_dir):
-    os.makedirs(output_dir)
+if __name__ == "__main__":
+    if len(sys.argv) != 2:
+        print("Uso: python3 generador_informes.py ruta")
+        sys.exit(1)
 
-# Generar informes para cada animal
-for animal in animales:
-    generar_informe(animal)
+    ruta_salida = sys.argv[1]
+
+    # Directorio de salida
+    if not os.path.exists(ruta_salida):
+        os.makedirs(ruta_salida)
+
+    # Generar informes para cada animal
+    for animal in animales:
+        generar_informe(animal, ruta_salida)
