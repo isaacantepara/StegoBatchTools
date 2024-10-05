@@ -1,2 +1,2 @@
 steghide (estenografia solo imagenes jpg y jpeg) 
-ExifTool (metadata para docx) = exiftool nombre_del_archivo.docx
+ExifTool (metadata para docx) = exiftool nombre_del_archivo.docx    
