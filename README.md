@@ -17,10 +17,6 @@
 
 - python3 oneDeleteRuido.py file.null
 
-### linux
-
-- steghide (estenografia solo imagenes jpg y jpeg)
-
 ### ofuscación
 
 - └─$ pyarmor gen -O output_folder file.py **SEGURIDAD ALTA**
@@ -36,3 +32,9 @@
     ya que ese pyc contien todas las dependencias
     - la ejecucion del script.cpython-312.pyc es:
         - > python3 script.cpython-312.pyc
+
+### stegografia (linux)
+
+- steghide embed -ef /home/pythonesso/Documents/decode_.zip -cf /home/pythonesso/Documents/zoo/pendriver/imagenes/River_Otter.jpeg  -sf stegohideResultZip.jpeg
+    - la imagen tiene que 4 veces mas grande que el zip porque
+- steghide extract -sf stegohideResultZip.jpeg 
