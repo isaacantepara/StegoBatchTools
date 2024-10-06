@@ -98,7 +98,7 @@ def generar_informe(animal, ruta_salida):
 
     # Guardar el documento
     dia_random = random.randint(1, 1000)  # Generar un día aleatorio
-    nombre_archivo = f"Informe_{animal.replace(' ', '_')}_n{dia_random}.docx"
+    nombre_archivo = f"{animal.replace(' ', '_')}_n{dia_random}.docx"
     ruta_completa = os.path.join(ruta_salida, nombre_archivo)
     doc.save(ruta_completa)
     print(f"Informe guardado como: {nombre_archivo}")
