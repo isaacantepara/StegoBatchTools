@@ -1,8 +1,8 @@
 import pandas as pd
 import os
-from cryptography.fernet import Fernet
+import hashlib
 
-def codeaes256(ruta_archivo):
+def hash256(ruta_archivo):
     try:
         df = pd.read_excel(ruta_archivo)
 
@@ -12,16 +12,15 @@ def codeaes256(ruta_archivo):
             # Concatenar los puntajes en un solo string
             puntajes_string = ''.join(str(x) for x in df['score'].tolist())
 
-            # Generar una clave aleatoria y cifrar el string
-            key = Fernet.generate_key()
-            f = Fernet(key)
-            cifrado = f.encrypt(puntajes_string.encode())
+            # Calcular el hash SHA256 del string
+            hash_object = hashlib.sha256(puntajes_string.encode())
+            hash_hex = hash_object.hexdigest()
 
-            # Guardar la clave cifrada en un archivo .txt
-            with open("password.txt", "wb") as file:
-                file.write(key)
+            # Guardar el hash en un archivo .txt
+            with open("master_password.txt", "w") as file:
+                file.write(hash_hex)
 
-            print("Clave cifrada guardada.")
+            print("calculado y guardado.")
 
     except FileNotFoundError:
         print(f"El archivo {ruta_archivo} no se encontró.")
@@ -34,4 +33,4 @@ if __name__ == "__main__":
     import sys
     if len(sys.argv) > 1:
         ruta_archivo = sys.argv[1]
-        codeaes256(ruta_archivo)
+        hash256(ruta_archivo)
