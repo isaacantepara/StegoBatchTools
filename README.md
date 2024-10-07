@@ -1,12 +1,19 @@
 # oculto
 
-### Metadata DOCX
-
-- exiftool file.docx
 
 ### Generar informes
 
 - └─$ python3 generar_informes.py  ruta_carpeta
+
+### Metadata DOCX
+
+- └─$ python3 cambiar_metadata_docx.py /home/pythonesso/Documents/zoo/pendriver/informes /home/pythonesso/Documents/zoo/data/password/animales_capturados.xlsx  (CAMBIAR METADATA)
+- exiftool file.docx
+
+### Contador de autores
+
+- contador_autores.py <arpeta con los archivos DOCX> <carpeta donde se guardará el archivo Excel>
+- python3 contador_autores.py /home/pythonesso/Documents/zoo/pendriver/informes /home/pythonesso/Documents/zoo/pendriver
 
 ### codificacion/decodificar por carpeta
 
