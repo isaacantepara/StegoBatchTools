@@ -24,6 +24,10 @@
 
 - python3 oneDeleteRuido.py file.null
 
+### descargar imagenes de un docx
+
+- └─$ python3 descargarM_img_docx.py ruta_file.docx
+
 ### ofuscación
 
 - └─$ pyarmor gen -O output_folder file.py **SEGURIDAD ALTA**

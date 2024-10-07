@@ -1,6 +1,6 @@
 <mxfile host="Electron" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.7.17 Chrome/128.0.6613.36 Electron/32.0.1 Safari/537.36" version="24.7.17" pages="2">
   <diagram name="general" id="w2itdub6rjrfL-Xlb_Og">
-    <mxGraphModel dx="1667" dy="522" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2117" dy="636" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -60,7 +60,7 @@
           <mxGeometry x="1200" y="460" width="120" height="110" as="geometry" />
         </mxCell>
         <mxCell id="sAjE2i76lBSJ9onT7VWk-19" value="Añadir imagenes con stego" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;strokeWidth=2;" parent="1" vertex="1">
-          <mxGeometry x="30" y="640" width="120" height="120" as="geometry" />
+          <mxGeometry x="-90" y="640" width="120" height="120" as="geometry" />
         </mxCell>
         <mxCell id="sAjE2i76lBSJ9onT7VWk-21" value="Añadir la division de algoritmos, hasta ahora solo tengo la eliminacion de ruido" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;strokeWidth=2;" parent="1" vertex="1">
           <mxGeometry x="550" y="690" width="120" height="120" as="geometry" />
@@ -83,7 +83,7 @@
         <mxCell id="sAjE2i76lBSJ9onT7VWk-27" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=12;startSize=8;endSize=8;strokeWidth=2;" parent="1" source="sAjE2i76lBSJ9onT7VWk-28" target="sAjE2i76lBSJ9onT7VWk-34" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="sAjE2i76lBSJ9onT7VWk-28" value="leer la puntuacion de empleado de mes y luego esa puntuacion darle un cifrado aes256, me tiene que dar un txt con el password del archivo main oculto" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+        <mxCell id="sAjE2i76lBSJ9onT7VWk-28" value="leer la puntuacion de empleado de mes y luego esa puntuacion darle un cifrado hash256, me tiene que dar un txt con el password del archivo main oculto" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
           <mxGeometry x="1654" y="460" width="186" height="110" as="geometry" />
         </mxCell>
         <mxCell id="sAjE2i76lBSJ9onT7VWk-29" value="desarrollar algoritmo" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=#2B2B2B;fillStyle=auto;fontColor=#FFFFFF;rounded=1;glass=0;shadow=1;" parent="1" vertex="1">
@@ -177,7 +177,7 @@
         <mxCell id="6rqUzMrDMWeVCsxA5xaX-15" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;code relevante&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=16;rotation=90;" parent="1" vertex="1">
           <mxGeometry x="708" y="660" width="100" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="hQRzahColT8ciNi7RRdj-2" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=12;startSize=8;endSize=8;" edge="1" parent="1" source="6rqUzMrDMWeVCsxA5xaX-16" target="hQRzahColT8ciNi7RRdj-1">
+        <mxCell id="hQRzahColT8ciNi7RRdj-2" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=12;startSize=8;endSize=8;" parent="1" source="6rqUzMrDMWeVCsxA5xaX-16" target="hQRzahColT8ciNi7RRdj-1" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="6rqUzMrDMWeVCsxA5xaX-16" value="scripts:&lt;br&gt;&lt;div&gt;decodificarU_img.py&lt;/div&gt;&lt;div&gt;contador_autores.py&lt;br&gt;&lt;div&gt;master_password.py&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#7FBA42;strokeWidth=2;" parent="1" vertex="1">
@@ -192,26 +192,35 @@
         <mxCell id="6rqUzMrDMWeVCsxA5xaX-23" value="" style="image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Key.svg;direction=north;" parent="1" vertex="1">
           <mxGeometry x="1725.4199999999998" y="330.12" width="43.16" height="26.76" as="geometry" />
         </mxCell>
-        <mxCell id="hQRzahColT8ciNi7RRdj-1" value="scripts:&lt;br&gt;&lt;div&gt;topo.py se encarga de descargar las imagenes de docx&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#7FBA42;strokeWidth=2;" vertex="1" parent="1">
+        <mxCell id="hQRzahColT8ciNi7RRdj-1" value="scripts:&lt;br&gt;&lt;div&gt;topo.py se encarga de descargar las imagenes de docx&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#7FBA42;strokeWidth=2;" parent="1" vertex="1">
           <mxGeometry x="666.5" y="930" width="149" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="eooJ3AI4A6NqeZ-mqspV-1" value="desarrollar algoritmo" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=#2B2B2B;fillStyle=auto;fontColor=#FFFFFF;rounded=1;glass=0;shadow=1;" vertex="1" parent="1">
+        <mxCell id="eooJ3AI4A6NqeZ-mqspV-1" value="desarrollar algoritmo" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=#2B2B2B;fillStyle=auto;fontColor=#FFFFFF;rounded=1;glass=0;shadow=1;" parent="1" vertex="1">
           <mxGeometry x="235" y="420" width="130" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="eooJ3AI4A6NqeZ-mqspV-2" value="" style="shape=mxgraph.signs.animals.bear_1;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;" vertex="1" parent="1">
+        <mxCell id="eooJ3AI4A6NqeZ-mqspV-2" value="" style="shape=mxgraph.signs.animals.bear_1;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;" parent="1" vertex="1">
           <mxGeometry x="60" y="320" width="60" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="eooJ3AI4A6NqeZ-mqspV-5" value="" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.cloud_services_configuration_file;pointerEvents=1;" vertex="1" parent="1">
+        <mxCell id="eooJ3AI4A6NqeZ-mqspV-5" value="" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.cloud_services_configuration_file;pointerEvents=1;" parent="1" vertex="1">
           <mxGeometry x="682.5" y="320" width="35" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="eooJ3AI4A6NqeZ-mqspV-9" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=data:image/png,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAAAXNSR0IArs4c6QAABnFJREFUeAHtnHtMU1cYwPWvJaMiA/rY/MeRDWi3mWWKVBkUjaNg9hCoW/Ywm2wU0ZFAizxcVuqbTTaBTXBmzriQLDw2zTYyQ1iksMQlOokJc5ubTlCDAwUVAUHhLKdJyT29p7en3NJT9Gvypb3fPb1Hf79+595zLu2cOfAAAkAACAABIAAEgAAQAAJAAAgAASAABIAAEAACQMArgcjPMpcoq0x5ympTcaAi6kh+rrbDVhyo0DlsObEd9mivMLg2QHPmqioz9quqTCjQ8cSxIoe2vQwFMmId9vHYDruFK3OpzpXVmVmBFuHqj4cQp3yHbSK27cNlUly47VNXrW12AQr0MzchuCodZfu4QZfqOLLa1BVoEa7+uApptzdIceG2D4RwQ0/vGITQuXDLghBu6OkdgxA6F25ZEMINPb1jEELnwi0LQrihp3cMQuhcuGVBCDf09I5BCJ0LtywI4Yae3jEIoXNhzqoLF4UorPrtIZalbYp8/Sm5Mb84cSS0JAnJitIkFGZbiZQVa3y6pzL7Fxfz0h5SWOM7FRY9CsaYZ12GIve8wixl1gtRWPS5wSiC+DcVJdwK3ZrSyRKaund+XNCU08kljmyQfz8kJF9/iPjPB2OlWPVIYX+BKVSH33I82pSNuERjdiPzecJTQ4VF3xD0QvCHBIQE2TkFhIAQn4c9GLLE5xU4hwTqIgCGLBiyZsWQFb/nTZTXUE6EYe96yUll3MdvEO3x+xfaUiXfI7rygwqhV8jjtjR0c3QICR/n+y+hRzY/TwWMZ9q/9ZwVNkenun9Hodbl1PYiEa4hEYTQhWBgW76vJgDjjU31u6iAs+psRNu7E/fQ8k/WUdt6lAHzEM8yMLSwwgR0tvc8Abpn4CqKKEokQIdvTkQXrl0m2lUeryPaSEpwVQcIkRaCIb60P48AjTes31UQsEuOVhJtLg1eRerSFUQbEOK2hiJn6aS5q50A3nuzH6lKkp3AF3ywCl2/fYPY//qh4unJgArxXiH4k/30zkw0eneMgI7PL3jfpz9/TeRb/jgxfRkghE0IBl/RepgAf+32IHqu/DU0PDY6lR8Zv+OUxzw8YQHuAVdZFCjukCx65znhyo2+Kfj4Rd/QALFtb64VA6YcSyRB2AaEsAnBEN+tKyMECDf+7usWXX1JghdKEL4GIexC8OTvxIUzQg/O15OTk2h1zSb51YHFgBB2IXhecubyOZEQnMCXx9OqCGF14KExRTfBEhHbU9rCa9InuMS+9Hq3i1jfN+Vc9rpAb/vpC6oMnPynvwdFFiXJlqI26hBLhO8wOsJrMhCPCKvN4H8L99ndrxKXvsNjI6j1z18JQR+1fAVCWGtFToXgc8fxcydF8J/akYHG7o1P5fFrvOLrqqjpPLNUB27zQFcIXlAUPvAc5LEtq5zgD/zSJNyFTnZ3+b7CKziPgBABDNonOqpsNRocuUVAx2tXrrZ4mX7ozjCx//2G3VP7Xe1Yn0GIFyHfdrYSsLsHekXzDXzuED7wfZQn7S9OSwoIkRCScaBAyNn5OuebbSLQmtKVoll74+kWUTuWKgEhHoSoSlagi9evEEL++u+i8x4JDWzx0b1EW7xh+tLqsxQQ4kFITXu9CPDag4UeAeObVP+63aTCwxsWSxPoKQdCKELwjHxj/U7iDxZoQ5U7VENlFvEe/EcOi3aZQAhtbiJnHuIOfia3oUIoFTKTwL0dG4SAEJ/Xw4JiLcvbJ9tf+6FCoEKgQqSq6YGpkFnxlbb8eKZ7IVja/bDaG/Rf+gzdsGRUadT2sESE3Xgs4vP0Hi5RnX6QNrXwLYe/Fl2w9LTUcMFz37yCeKRc8wzSpOqYIurtBEeM2YA4hZ9+BNO8+GGFNX6r3344YGPcyPzcOCQnQnPjUFjWYqR6mV0GlnZ/CPGtpry21qTqulg/0f5uB0IoekAIBQrPFAjhSZ/SNwihQOGZAiE86VP6BiEUKDxTIIQnfUrfIIQChWcKhPCkT+kbhFCg8EyBEJ70KX2DEAoUnikQwpM+pW9NmvYHfy8ash6P6+JijkH+j2BSeMpOaYy69awA/d2Om5Bsw4T2vWS9bHgzdIC5mjRdrb9hsxyPh5Bos2E8xpycP0Ms/XdYdZpWr07VlWiM2vJAxcJ1+qKY7OTyQEW02VAQbU6O9R81OBIQAAJAAAgAASAABIAAEAACQAAIAAEgAASAABAIDgL/A5ehbXeaOitDAAAAAElFTkSuQmCC;" vertex="1" parent="1">
+        <mxCell id="eooJ3AI4A6NqeZ-mqspV-9" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=data:image/png,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;" parent="1" vertex="1">
           <mxGeometry x="475" y="323.5" width="40" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="eooJ3AI4A6NqeZ-mqspV-10" value="" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/general/Image.svg;" vertex="1" parent="1">
+        <mxCell id="eooJ3AI4A6NqeZ-mqspV-10" value="" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/general/Image.svg;" parent="1" vertex="1">
           <mxGeometry x="281.82" y="335" width="36.36" height="25" as="geometry" />
         </mxCell>
-        <mxCell id="eooJ3AI4A6NqeZ-mqspV-11" value="" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/general/Image.svg;" vertex="1" parent="1">
+        <mxCell id="eooJ3AI4A6NqeZ-mqspV-11" value="" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/general/Image.svg;" parent="1" vertex="1">
           <mxGeometry x="671.64" y="335" width="36.36" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="iHbCCgad4bf8usi3pUZs-1" value="descargador de imagenes de docx" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="110" y="650" width="120" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="iHbCCgad4bf8usi3pUZs-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="sAjE2i76lBSJ9onT7VWk-3" target="iHbCCgad4bf8usi3pUZs-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-20" y="650" as="targetPoint" />
+            <mxPoint x="100" y="580" as="sourcePoint" />
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>
