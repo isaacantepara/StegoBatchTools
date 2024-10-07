@@ -20,14 +20,14 @@ def hash256(ruta_archivo):
             with open("master_password.txt", "w") as file:
                 file.write(hash_hex)
 
-            print("calculado y guardado.")
+            print("success")
 
     except FileNotFoundError:
-        print(f"El archivo {ruta_archivo} no se encontró.")
+        print(f"El archivo no se encontró.")
     except pd.errors.EmptyDataError:
-        print(f"El archivo {ruta_archivo} está vacío.")
+        print(f"El archivo está vacío.")
     except Exception as e:
-        print(f"Error al procesar el archivo: {e}")
+        print(f"Error al procesar")
 
 if __name__ == "__main__":
     import sys
