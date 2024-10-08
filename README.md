@@ -1,5 +1,19 @@
 # oculto
 
+### Generar markdown
+
+- python3 script.py ruta_salida cantidad_archivos
+- └─$ python3 generador_markdown.py /home/pythonesso/Documents/zoo/pendriver/md 2
+
+### Comprension masiva carpetas a zips
+
+- script.py ruta_con_todas_las_carpetas ruta_de_carpeta_zip_salida
+- └─$ python3 compresionM_zip.py /home/pythonesso/Documents/zoo/pendriver/md /home/pythonesso/Documents/zoo/pendriver/zips
+
+### Stegografia masiva de zips
+
+- ./stegoM.sh /home/pythonesso/Documents/zoo/pendriver/zips /home/pythonesso/Documents/zoo/pendriver/imagenes
+
 
 ### Generar informes
 
