@@ -31,7 +31,9 @@
 
 ### codificacion/decodificar por carpeta
 
-- python  codificarM_img.py <ruta_carpeta_imagenes> <ruta_carpeta_salida>
+- python  codificarM_img.py <ruta_carpeta_imagenes> <ruta_carpeta_salida> <isfolder>
+- └─$ python  codificarM_img.py /home/pythonesso/Documents/zoo/pendriver/imagenes /home/pythonesso/Documents/zoo/pendriver/c -y
+
 - python decodificarM_img.py <ruta_carpeta_codificada> <ruta_carpeta_decodificada>
 
 ### decodicicar un archivo
