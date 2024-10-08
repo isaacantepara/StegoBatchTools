@@ -30,7 +30,7 @@ for archivo_zip in "$carpeta_zips"/*.zip; do
 
   if [ -f "$imagen" ]; then
     # Generar el nombre de la imagen resultante en la carpeta stegoImg
-    nombre_imagen_stego="$carpeta_stego/$(basename "$imagen" .jpg)_stego.jpg"
+    nombre_imagen_stego="$carpeta_stego/$(basename "$imagen" .jpg).jpg"
 
     echo "Incrustando $archivo_zip en $imagen..."
     
