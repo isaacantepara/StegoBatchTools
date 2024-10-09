@@ -1,3 +1,0 @@
-def recuperar(ruta_archivo_base64, nombre_archivo, cantidad_ruido=1024):
-    """Recupera una imagen desde un archivo base64."""
-    imagen_(ruta_archivo_base64, nombre_archivo, ".", cantidad_ruido)  # Guarda en la ruta actual
