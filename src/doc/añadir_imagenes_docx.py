@@ -39,10 +39,10 @@ def convert_and_add_images_to_document(folder_path, output_filename):
         print(f"Error al guardar el documento: {str(e)}")
 
 # Ruta de la carpeta que contiene las imágenes
-folder_path = '/home/pythonesso/Documents/zoo/pendriver/imagenes'
+folder_path = '/home/pythonesso/Downloads/mierda/peces'
 
 # Nombre del archivo de salida
-output_filename = 'documento_con_imagenes.docx'
+output_filename = 'peces.docx'
 
 # Llamar a la función
 convert_and_add_images_to_document(folder_path, output_filename)

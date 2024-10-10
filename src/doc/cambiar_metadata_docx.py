@@ -3,14 +3,13 @@ from datetime import datetime
 import os
 import time
 import random
-import subprocess
 import openpyxl
 import sys
 
 def modificar_metadatos(archivo, archivo_excel):
     """Modifica los metadatos de un archivo DOCX."""
     doc = Document(archivo)
-    print(archivo)
+    print(f"Modificando metadatos para: {archivo}")
 
     # Leer el archivo Excel
     workbook = openpyxl.load_workbook(archivo_excel)
@@ -21,15 +20,20 @@ def modificar_metadatos(archivo, archivo_excel):
     autor_seleccionado = worksheet.cell(row=row_index, column=1).value
     fecha_captura = worksheet.cell(row=row_index, column=3).value
 
+    print(f"Autor seleccionado: {autor_seleccionado}, Fecha captura: {fecha_captura}")
+
     line = autor_seleccionado.split(" ") 
     nombre_completo = f"{line[0]}_{line[1]}"
 
-    # Si la fecha ya es un objeto datetime, no necesitas convertirla
+    # Convertir la cadena de texto a un objeto datetime
     if isinstance(fecha_captura, datetime):
         target_datetime = fecha_captura
     else:
-        # Convertir la cadena de texto a un objeto datetime
-        target_datetime = datetime.strptime(fecha_captura, "%d/%m/%Y")  # Formato de fecha en el Excel
+        try:
+            target_datetime = datetime.strptime(fecha_captura, "%d/%m/%Y")  # Formato de fecha en el Excel
+        except ValueError as ve:
+            print(f"Error en la conversión de fecha para {autor_seleccionado}: {ve}")
+            return
 
     # Establecer el autor en el documento
     doc.core_properties.author = nombre_completo
@@ -37,7 +41,6 @@ def modificar_metadatos(archivo, archivo_excel):
     # Establecer metadatos con el objeto datetime
     doc.core_properties.created = target_datetime
     doc.core_properties.modified = target_datetime
-
     doc.core_properties.description = "lil" 
 
     # Guardar los cambios
@@ -56,8 +59,13 @@ if __name__ == "__main__":
     carpeta_docx = sys.argv[1]
     archivo_excel = sys.argv[2]
 
+    print(f"Buscando archivos en: {carpeta_docx}")
+
     # Iterar sobre los archivos DOCX en la carpeta
     for archivo in os.listdir(carpeta_docx):
         if archivo.endswith(".docx"):
             ruta_archivo = os.path.join(carpeta_docx, archivo)
-            modificar_metadatos(ruta_archivo, archivo_excel)
+            try:
+                modificar_metadatos(ruta_archivo, archivo_excel)
+            except Exception as e:
+                print(f"Error al modificar {archivo}: {e}")
