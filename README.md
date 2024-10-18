@@ -1,4 +1,9 @@
 # oculto
+pyhton3 descargarM_img_docx.py descargarM_img_docx.py //se descarga todas las imagenes en el directorio actual
+![Screenshot_20241018_181304](https://github.com/user-attachments/assets/078f8e19-e43e-4d30-acd3-2e5ddb8b141b)
+![Screenshot_20241018_181744](https://github.com/user-attachments/assets/408a737f-3628-4353-91cf-87f6dbf61ab4)
+![Screenshot_20241018_181858](https://github.com/user-attachments/assets/1752faed-58f9-4e82-89eb-386530f984c7)
+
 
 ### Generar markdown
 
